@@ -6,6 +6,5 @@ A simple YouTube-style webpage built using HTML, CSS and Javascript.
 - 📺 Sidebar with suggested videos   
 - 🎥 Hover effects and comment section  
 
-🔗 Watch it Live  (https://2806shreya.github.io/Project1/)
-
+🔗 Watch it Live  (https://2806shreya.github.io/youtube-replica-page/)
 
