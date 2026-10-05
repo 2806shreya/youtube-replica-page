@@ -1,0 +1,76 @@
+{
+  "subscribed": false,
+  "videos": [
+    {
+      "id": "srm-clubs",
+      "title": "Know More About Clubs in SRM",
+      "channel": "SRM Univ",
+      "views": 150000,
+      "uploadedAt": "1 month ago",
+      "likes": 1420,
+      "liked": false,
+      "description": "Explore technical, cultural, and social clubs available at SRM and discover where you belong.",
+      "image": "images/Srm-university.png"
+    },
+    {
+      "id": "srm-student-life",
+      "title": "SRM Student Life",
+      "channel": "Campus Vibes",
+      "views": 91000,
+      "uploadedAt": "2 weeks ago",
+      "likes": 860,
+      "liked": false,
+      "description": "A quick look at academics, fests, and hostel routines from the student perspective.",
+      "image": "images/Exam Time!.jpeg"
+    },
+    {
+      "id": "campus-diaries",
+      "title": "Campus Diaries | SRM Edition",
+      "channel": "Inside UniLife",
+      "views": 73000,
+      "uploadedAt": "3 weeks ago",
+      "likes": 670,
+      "liked": false,
+      "description": "Walk through a regular day on campus with classrooms, clubs, and evening hangouts.",
+      "image": "images/images (1).jpeg"
+    },
+    {
+      "id": "srm-hostels",
+      "title": "Know More About Hostels in SRM",
+      "channel": "SRM Talks",
+      "views": 62000,
+      "uploadedAt": "5 days ago",
+      "likes": 544,
+      "liked": false,
+      "description": "Hostel blocks, facilities, and practical tips for first-year students.",
+      "image": "images/images.jpeg"
+    },
+    {
+      "id": "alumni-stories",
+      "title": "Where Are They Now? | SRM Alumni Stories",
+      "channel": "SRM Alumni Network",
+      "views": 48000,
+      "uploadedAt": "4 days ago",
+      "likes": 502,
+      "liked": false,
+      "description": "Career journeys of SRM alumni across engineering, startups, and public service.",
+      "image": "images/Black and Green Simple Business Youtube Thumbnail.png"
+    }
+  ],
+  "comments": {
+    "srm-clubs": [
+      {
+        "id": "c1",
+        "author": "Karthik",
+        "text": "I had no idea SRM had so many amazing clubs!",
+        "createdAt": "2026-10-05T08:00:00.000Z"
+      },
+      {
+        "id": "c2",
+        "author": "Anjali",
+        "text": "This helped me decide which club to join 😍",
+        "createdAt": "2026-10-05T08:30:00.000Z"
+      }
+    ]
+  }
+}

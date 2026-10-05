@@ -1,226 +1,347 @@
-/* General Reset */
+:root {
+  --bg: #0f0f0f;
+  --panel: #202020;
+  --panel-soft: #171717;
+  --text: #ffffff;
+  --muted: #b6b6b6;
+  --accent: #ff3030;
+  --focus: #51a8ff;
+}
+
+body[data-theme='light'] {
+  --bg: #f8f9fb;
+  --panel: #ffffff;
+  --panel-soft: #eff2f7;
+  --text: #161616;
+  --muted: #565656;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-/* Body Background */
 body {
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-/* Navbar */
+.skip-link,
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--focus);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 999;
+}
+
 .navbar {
+  background: var(--panel);
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
   align-items: center;
-  padding: 12px 20px;
-  background-color: #202020;
-  color: white;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }
 
-.top-left {
+.top-left,
+.header-actions,
+.search-form {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.75rem;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 20px;
+  font-size: 1.2rem;
+}
+
+.icon-btn,
+.search-btn,
+.action-btn,
+.subscribe-btn,
+.comment-form button {
+  border: 1px solid transparent;
+  background: var(--panel-soft);
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+}
+
+.search-form {
+  flex: 1;
+  max-width: 600px;
 }
 
 .search-bar {
-  width: 40%;
-  padding: 8px 12px;
-  border-radius: 20px;
-  border: none;
-  background-color: #121212;
-  color: white;
+  flex: 1;
+  border: 1px solid #3d3d3d;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
 }
 
 .profile-circle {
-  background-color: #333;
+  background: #444;
   border-radius: 50%;
-  padding: 8px;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
 }
 
-.theme-toggle {
-  margin-left: 10px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: white;
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 340px;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-/* Layout */
-.container {
-  display: flex;
-  gap: 30px;
-  max-width: 1600px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-/* Main Video Content */
-.main-content {
-  flex: 2.2;
-  max-width: 960px;
-}
-
-.video-player {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background: transparent;
-}
-
-.video-player iframe,
-.video-player img {
-  width: 100%;
-  height: auto;
+.sidebar-nav,
+.video-detail,
+.comments,
+.cards-section,
+.sidebar {
+  background: var(--panel);
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.sidebar-nav a {
+  color: var(--text);
+  text-decoration: none;
   display: block;
-  border: none;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
 }
 
-/* If using image instead of iframe */
-.video-player img {
+.sidebar-nav a:hover,
+.sidebar-nav a[aria-current='page'] {
+  background: var(--panel-soft);
+}
+
+.main-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 12px;
+  max-height: 460px;
   object-fit: cover;
-  height: 495px;
+  margin-bottom: 1rem;
 }
 
-/* Video Title */
 .video-title {
-  font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 0.4rem;
 }
 
-.video-info {
+.video-meta,
+.video-description,
+.channel-copy,
+.comment-time {
+  color: var(--muted);
+}
+
+.video-description {
+  margin: 0.6rem 0 1rem;
+}
+
+.video-actions {
   display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-  color: #aaaaaa;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.video-info button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: white;
+.action-btn[aria-pressed='true'],
+.subscribe-btn[aria-pressed='true'] {
+  background: #323232;
+  border-color: #5a5a5a;
 }
 
-/* Channel Info */
 .channel-info {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 0.75rem;
 }
 
 .channel-info img {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+}
+
+.channel-name {
+  font-weight: bold;
 }
 
 .subscribe-btn {
   margin-left: auto;
-  background-color: red;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
+  background: var(--accent);
+}
+
+.comment-form {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.comment-form input {
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.comments-list {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.comment-item {
+  background: var(--panel-soft);
+  border-radius: 8px;
+  padding: 0.65rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.comment-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.comment-delete {
+  border: 0;
+  background: transparent;
+  color: #ff8f8f;
   cursor: pointer;
 }
 
-/* Comments */
-.comments {
-  margin-top: 20px;
+.video-cards,
+.suggested-videos {
+  display: grid;
+  gap: 0.75rem;
 }
 
-.comments h3 {
-  margin-bottom: 10px;
-}
-
-/* Sidebar */
-.sidebar {
-  flex: 1;
-  max-width: 380px;
-  margin-left: 20px;
-}
-
-.suggested-title {
-  font-size: 26px; 
-  margin-bottom: 24px;
-  font-weight: bold;
-}
-
-
+.video-card,
 .suggested-video {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  color: white;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 0.6rem;
+  border: 0;
+  background: var(--panel-soft);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: left;
+  cursor: pointer;
 }
 
+.video-card img,
 .suggested-video img {
-  width: 160px; 
-  height: 95px; 
+  width: 100%;
+  height: 80px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.suggested-video .title {
-  font-size: 18px; 
-  font-weight: bold;
+.card-title {
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
 }
 
-.suggested-video .channel {
-  font-size: 14px;
-  color: #aaaaaa;
+.card-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
-
-/* Hover on Navbar Icons */
-.theme-toggle:hover,
-.profile-circle:hover,
-.hamburger-menu:hover {
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+.status-message,
+.empty-state {
+  font-size: 0.92rem;
+  color: var(--muted);
 }
 
-/* Subscribe Button Hover */
-.subscribe-btn:hover {
-  background-color: #cc0000;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
-/* Suggested Video Hover */
-.suggested-video:hover {
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+@media (max-width: 1100px) {
+  .page-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    grid-column: 1 / -1;
+  }
 }
 
-.suggested-video img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+@media (max-width: 820px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .sidebar-nav.open {
+    display: block;
+  }
+
+  .comment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form {
+    order: 3;
+    width: 100%;
+    max-width: none;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
 }
 
-/* Video Info Buttons Hover */
-.video-info button:hover {
-  background-color: #303030;
-  border-radius: 5px;
-  padding: 4px 8px;
-  transition: background-color 0.2s ease;
+@media (max-width: 540px) {
+  .video-card,
+  .suggested-video {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card img,
+  .suggested-video img {
+    height: 150px;
+  }
 }

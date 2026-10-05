@@ -1,0 +1,21 @@
+{
+  "name": "youtube-replica-page",
+  "version": "1.0.0",
+  "description": "Responsive SRM YouTube-style MVP with static frontend and optional local API backend.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "keywords": [
+    "srm",
+    "youtube-replica",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
