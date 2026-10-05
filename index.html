@@ -3,95 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Know More About Clubs in SRM - SRM Univ</title>
+  <title>SRM Campus Stream | YouTube Replica</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Navbar -->
-  <header class="navbar">
+<body data-theme="dark">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="navbar" role="banner">
     <div class="top-left">
-      <span class="youtube-emoji">📺</span>
-      <span class="hamburger-menu">&#9776;</span>
-      <div class="logo">YouTube</div>
+      <button id="menu-toggle" class="icon-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="side-nav">☰</button>
+      <span class="youtube-emoji" aria-hidden="true">📺</span>
+      <h1 class="logo">SRM Stream</h1>
     </div>
-    <input type="text" placeholder="Search" class="search-bar" />
-    <div class="profile-circle">
-      <span class="profile">👤</span>
+
+    <form id="search-form" class="search-form" role="search" aria-label="Search videos">
+      <label class="visually-hidden" for="search-input">Search videos</label>
+      <input id="search-input" type="search" placeholder="Search SRM videos" class="search-bar" />
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">🌙</button>
+      <span class="profile-circle" aria-label="Profile" role="img">👤</span>
     </div>
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
   </header>
 
-  <!-- Main Container -->
-  <div class="container">
-    <!-- Main Video Section -->
-    <main class="main-content">
-      <div class="video-player">
-        <!-- Updated: Show image instead of iframe -->
-        <img src="images/Srm-university.png" class="main-image" alt="SRM Gate Image" />
-      </div>
-      <h2 class="video-title">Know More About Clubs in SRM</h2>
-      <div class="video-info">
-        <span>150K views • 1 month ago</span>
-        <button>👍 Like</button>
-        <button>🔗 Share</button>
-        <button>💬 Comment</button>
-        <button>💾 Save</button>
-      </div>
-      <div class="channel-info">
-        <img src="images/srm-institute-of-science-and-technology-logo-png_seeklogo-381994.png" alt="Channel Profile" />
-        <div>
-          <strong>SRM Univ</strong><br />
-          1.1M subscribers
-        </div>
-        <button class="subscribe-btn">Subscribe</button>
-      </div>
+  <div class="page-layout">
+    <nav id="side-nav" class="sidebar-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Campus Trends</a></li>
+        <li><a href="#">Subscriptions</a></li>
+        <li><a href="#">Library</a></li>
+      </ul>
+    </nav>
 
-      <!-- Comments -->
-      <section class="comments">
+    <main id="main-content" class="main-content" tabindex="-1">
+      <section id="status-message" class="status-message" role="status" aria-live="polite"></section>
+
+      <article class="video-detail" aria-label="Video detail view">
+        <img id="video-image" class="main-image" src="images/Srm-university.png" alt="SRM campus gate" />
+
+        <h2 id="video-title" class="video-title">Know More About Clubs in SRM</h2>
+
+        <p id="video-meta" class="video-meta"></p>
+        <p id="video-description" class="video-description"></p>
+
+        <div class="video-actions">
+          <button id="like-btn" class="action-btn" type="button" aria-pressed="false">👍 Like</button>
+          <button class="action-btn" type="button">🔗 Share</button>
+          <button class="action-btn" type="button">💾 Save</button>
+        </div>
+
+        <section class="channel-info" aria-label="Channel info">
+          <img src="images/srm-institute-of-science-and-technology-logo-png_seeklogo-381994.png" alt="SRM University logo" />
+          <div>
+            <p class="channel-name">SRM Univ</p>
+            <p id="subscriber-copy" class="channel-copy">Campus stories and student life</p>
+          </div>
+          <button id="subscribe-btn" class="subscribe-btn" type="button" aria-pressed="false">Subscribe</button>
+        </section>
+      </article>
+
+      <section class="comments" aria-label="Comments">
         <h3>Comments</h3>
-        <p><strong>Karthik:</strong> I had no idea SRM had so many amazing clubs!</p>
-        <p><strong>Anjali:</strong> This helped me decide which club to join 😍</p>
+        <form id="comment-form" class="comment-form">
+          <label class="visually-hidden" for="comment-author">Your name</label>
+          <input id="comment-author" name="author" type="text" placeholder="Your name" maxlength="30" required />
+          <label class="visually-hidden" for="comment-text">Add a comment</label>
+          <input id="comment-text" name="text" type="text" placeholder="Add a comment" maxlength="220" required />
+          <button type="submit">Post</button>
+        </form>
+        <p id="comments-empty" class="empty-state" hidden>No comments yet. Be the first to comment.</p>
+        <ul id="comments-list" class="comments-list"></ul>
+      </section>
+
+      <section aria-label="Search results" class="cards-section">
+        <h3>More SRM Videos</h3>
+        <div id="video-cards" class="video-cards"></div>
+        <p id="cards-empty" class="empty-state" hidden>No matching videos found.</p>
       </section>
     </main>
 
-    <!-- Sidebar Suggestions -->
-    <aside class="sidebar">
+    <aside class="sidebar" aria-label="Suggested videos">
       <h3 class="suggested-title">Suggested Videos</h3>
-
-      <div class="suggested-video">
-        <img src="images/Exam Time!.jpeg" />
-        <div>
-          <p class="title">SRM Student Life</p>
-          <p class="channel">Campus Vibes</p>
-        </div>
-      </div>
-
-      <div class="suggested-video">
-        <img src="images/images (1).jpeg" />
-        <div>
-          <p class="title">Campus Diaries | SRM Edition</p>
-          <p class="channel">Inside UniLife</p>
-        </div>
-      </div>
-
-      <div class="suggested-video">
-        <img src="images/images.jpeg" />
-        <div>
-          <p class="title">Know More About Hostels in SRM</p>
-          <p class="channel">SRM Talks</p>
-        </div>
-      </div>
-
-      <div class="suggested-video">
-        <img src="images/Black and Green Simple Business Youtube Thumbnail.png" />
-        <div>
-          <p class="title">Where Are They Now? | SRM Alumni Stories</p>
-          <p class="channel">SRM Alumni Network</p>
-        </div>
-      </div>
+      <div id="suggested-videos" class="suggested-videos"></div>
     </aside>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
