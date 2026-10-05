@@ -3,92 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SRM Campus Stream | YouTube Replica</title>
+  <title>StreamSpace | Responsive Video Platform Demo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body data-theme="dark">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="navbar" role="banner">
-    <div class="top-left">
-      <button id="menu-toggle" class="icon-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="side-nav">☰</button>
-      <span class="youtube-emoji" aria-hidden="true">📺</span>
-      <h1 class="logo">SRM Stream</h1>
+  <header class="app-header" role="banner">
+    <div class="header-start">
+      <button id="menu-toggle" class="icon-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="app-sidebar">☰</button>
+      <a class="brand" href="#" aria-label="StreamSpace home">
+        <span class="brand-mark" aria-hidden="true">▶</span>
+        <span class="brand-text">StreamSpace</span>
+      </a>
     </div>
 
     <form id="search-form" class="search-form" role="search" aria-label="Search videos">
       <label class="visually-hidden" for="search-input">Search videos</label>
-      <input id="search-input" type="search" placeholder="Search SRM videos" class="search-bar" />
-      <button class="search-btn" type="submit">Search</button>
+      <input id="search-input" type="search" class="search-input" placeholder="Search videos, channels, categories" autocomplete="off" />
+      <button type="submit" class="search-btn" aria-label="Run search">Search</button>
     </form>
 
-    <div class="header-actions">
-      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">🌙</button>
-      <span class="profile-circle" aria-label="Profile" role="img">👤</span>
+    <div class="header-actions" aria-label="Quick actions">
+      <button id="create-btn" class="pill-btn" type="button" aria-label="Create upload">Create</button>
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle light or dark theme">🌙</button>
+      <button class="profile-chip" type="button" aria-label="Open profile menu">SS</button>
     </div>
   </header>
 
-  <div class="page-layout">
-    <nav id="side-nav" class="sidebar-nav" aria-label="Main navigation">
-      <ul>
+  <div id="mobile-overlay" class="mobile-overlay" hidden></div>
+
+  <div class="app-layout">
+    <nav id="app-sidebar" class="app-sidebar" aria-label="Primary">
+      <ul class="nav-list">
         <li><a href="#" aria-current="page">Home</a></li>
-        <li><a href="#">Campus Trends</a></li>
+        <li><a href="#">Shorts</a></li>
         <li><a href="#">Subscriptions</a></li>
         <li><a href="#">Library</a></li>
+        <li><a href="#">Watch Later</a></li>
       </ul>
+      <section class="sidebar-note" aria-label="About demo">
+        <h2>Demo mode</h2>
+        <p>Frontend runs on GitHub Pages with local fallback storage when API is offline.</p>
+      </section>
     </nav>
 
     <main id="main-content" class="main-content" tabindex="-1">
-      <section id="status-message" class="status-message" role="status" aria-live="polite"></section>
+      <p id="status-message" class="status-message" role="status" aria-live="polite">Loading...</p>
 
-      <article class="video-detail" aria-label="Video detail view">
-        <img id="video-image" class="main-image" src="images/Srm-university.png" alt="SRM campus gate" />
+      <section class="chip-row" aria-label="Video categories">
+        <div id="category-chips" class="chips" role="listbox" aria-label="Filter by category"></div>
+      </section>
 
-        <h2 id="video-title" class="video-title">Know More About Clubs in SRM</h2>
+      <section id="featured-panel" class="featured-panel" aria-label="Featured video">
+        <div id="featured-empty" class="empty-state" hidden>No video selected.</div>
 
-        <p id="video-meta" class="video-meta"></p>
-        <p id="video-description" class="video-description"></p>
-
-        <div class="video-actions">
-          <button id="like-btn" class="action-btn" type="button" aria-pressed="false">👍 Like</button>
-          <button class="action-btn" type="button">🔗 Share</button>
-          <button class="action-btn" type="button">💾 Save</button>
-        </div>
-
-        <section class="channel-info" aria-label="Channel info">
-          <img src="images/srm-institute-of-science-and-technology-logo-png_seeklogo-381994.png" alt="SRM University logo" />
-          <div>
-            <p class="channel-name">SRM Univ</p>
-            <p id="subscriber-copy" class="channel-copy">Campus stories and student life</p>
+        <div id="featured-content" hidden>
+          <div class="player-shell" aria-label="Mock player">
+            <img id="video-image" class="featured-image" src="images/Srm-university.png" alt="Featured video thumbnail" />
+            <div class="player-badge" id="player-status">Paused</div>
+            <button id="play-toggle" class="player-toggle" type="button" aria-pressed="false">▶ Play</button>
           </div>
-          <button id="subscribe-btn" class="subscribe-btn" type="button" aria-pressed="false">Subscribe</button>
-        </section>
-      </article>
 
-      <section class="comments" aria-label="Comments">
-        <h3>Comments</h3>
+          <div class="featured-body">
+            <h1 id="video-title" class="video-title"></h1>
+            <p id="video-meta" class="video-meta"></p>
+            <p id="video-description" class="video-description"></p>
+
+            <div class="featured-actions" aria-label="Video actions">
+              <button id="like-btn" class="action-btn" type="button" aria-pressed="false">👍 Like</button>
+              <button id="save-btn" class="action-btn" type="button" aria-pressed="false">💾 Save</button>
+              <button id="share-btn" class="action-btn" type="button">🔗 Share</button>
+            </div>
+
+            <section class="channel-card" aria-label="Channel details">
+              <div class="channel-copy-wrap">
+                <p id="channel-name" class="channel-name"></p>
+                <p id="subscriber-copy" class="channel-copy"></p>
+              </div>
+              <button id="subscribe-btn" class="subscribe-btn" type="button" aria-pressed="false">Subscribe</button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="Video content">
+        <section class="feed-panel" aria-label="Video feed">
+          <div class="panel-head">
+            <h2>Video Feed</h2>
+            <p id="results-copy" class="muted"></p>
+          </div>
+          <div id="video-cards" class="video-cards"></div>
+          <p id="cards-empty" class="empty-state" hidden>No videos match your current filters.</p>
+        </section>
+
+        <aside class="suggested-panel" aria-label="Suggested videos">
+          <h2>Suggested</h2>
+          <div id="suggested-videos" class="suggested-videos"></div>
+          <p id="suggested-empty" class="empty-state" hidden>No suggestions available.</p>
+
+          <h3>Watch Later</h3>
+          <div id="watch-later-list" class="watch-later-list"></div>
+          <p id="watch-later-empty" class="empty-state" hidden>No saved videos yet.</p>
+        </aside>
+      </section>
+
+      <section class="comments-panel" aria-label="Comments">
+        <h2>Comments</h2>
         <form id="comment-form" class="comment-form">
-          <label class="visually-hidden" for="comment-author">Your name</label>
-          <input id="comment-author" name="author" type="text" placeholder="Your name" maxlength="30" required />
-          <label class="visually-hidden" for="comment-text">Add a comment</label>
-          <input id="comment-text" name="text" type="text" placeholder="Add a comment" maxlength="220" required />
+          <label class="visually-hidden" for="comment-author">Name</label>
+          <input id="comment-author" name="author" type="text" maxlength="30" placeholder="Name" required />
+          <label class="visually-hidden" for="comment-text">Comment</label>
+          <input id="comment-text" name="text" type="text" maxlength="220" placeholder="Add a comment" required />
           <button type="submit">Post</button>
         </form>
-        <p id="comments-empty" class="empty-state" hidden>No comments yet. Be the first to comment.</p>
+        <p id="comments-empty" class="empty-state" hidden>No comments yet.</p>
         <ul id="comments-list" class="comments-list"></ul>
       </section>
-
-      <section aria-label="Search results" class="cards-section">
-        <h3>More SRM Videos</h3>
-        <div id="video-cards" class="video-cards"></div>
-        <p id="cards-empty" class="empty-state" hidden>No matching videos found.</p>
-      </section>
     </main>
-
-    <aside class="sidebar" aria-label="Suggested videos">
-      <h3 class="suggested-title">Suggested Videos</h3>
-      <div id="suggested-videos" class="suggested-videos"></div>
-    </aside>
   </div>
 
   <script type="module" src="script.js"></script>

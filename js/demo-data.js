@@ -2,63 +2,112 @@ export const demoData = {
   subscribed: false,
   videos: [
     {
-      id: 'srm-clubs',
+      id: 'edu-web-basics',
+      title: 'Web Development Basics in 12 Minutes',
+      channel: 'CodeAtlas',
+      category: 'Education',
+      views: 182304,
+      uploadedAt: '2 weeks ago',
+      duration: '12:04',
+      likes: 6210,
+      liked: false,
+      description: 'A practical beginner-friendly breakdown of HTML, CSS, and JavaScript for your first project.',
+      image: 'images/Black and Green Simple Business Youtube Thumbnail.png'
+    },
+    {
+      id: 'tech-ai-tools',
+      title: 'Top AI Productivity Tools for Students',
+      channel: 'TechSprint',
+      category: 'Technology',
+      views: 95120,
+      uploadedAt: '5 days ago',
+      duration: '9:41',
+      likes: 2781,
+      liked: false,
+      description: 'A quick demo of note-taking, summarizing, and planning tools students are using this semester.',
+      image: 'images/images (1).jpeg'
+    },
+    {
+      id: 'music-lofi-set',
+      title: 'Lofi Study Mix: Focus Session',
+      channel: 'CloudBeats',
+      category: 'Music',
+      views: 420551,
+      uploadedAt: '1 month ago',
+      duration: '31:10',
+      likes: 10020,
+      liked: false,
+      description: 'Relaxing instrumental mix made for coding, reading, and late-night assignment crunches.',
+      image: 'images/images.jpeg'
+    },
+    {
+      id: 'gaming-strategy',
+      title: 'How We Won the Final Round (Strategy Replay)',
+      channel: 'NextLevel Gaming',
+      category: 'Gaming',
+      views: 203981,
+      uploadedAt: '3 days ago',
+      duration: '14:30',
+      likes: 7672,
+      liked: false,
+      description: 'Team comms and map strategy from a competitive match with beginner takeaways.',
+      image: 'images/Exam Time!.jpeg'
+    },
+    {
+      id: 'sports-conditioning',
+      title: '15-Min Home Conditioning for Athletes',
+      channel: 'PeakSports Lab',
+      category: 'Sports',
+      views: 88211,
+      uploadedAt: '4 weeks ago',
+      duration: '15:02',
+      likes: 2514,
+      liked: false,
+      description: 'Mobility and endurance routine with no equipment for daily training consistency.',
+      image: 'images/Srm-university.png'
+    },
+    {
+      id: 'campus-clubs-srm',
       title: 'Know More About Clubs in SRM',
       channel: 'SRM Univ',
+      category: 'Campus',
       views: 150000,
       uploadedAt: '1 month ago',
+      duration: '8:54',
       likes: 1420,
       liked: false,
       description: 'Explore technical, cultural, and social clubs available at SRM and discover where you belong.',
       image: 'images/Srm-university.png'
     },
     {
-      id: 'srm-student-life',
-      title: 'SRM Student Life',
-      channel: 'Campus Vibes',
-      views: 91000,
-      uploadedAt: '2 weeks ago',
-      likes: 860,
+      id: 'campus-hostel-guide',
+      title: 'Campus Hostel Survival Guide',
+      channel: 'Student Vibes',
+      category: 'Campus',
+      views: 67112,
+      uploadedAt: '6 days ago',
+      duration: '7:23',
+      likes: 1380,
       liked: false,
-      description: 'A quick look at academics, fests, and hostel routines from the student perspective.',
-      image: 'images/Exam Time!.jpeg'
-    },
-    {
-      id: 'campus-diaries',
-      title: 'Campus Diaries | SRM Edition',
-      channel: 'Inside UniLife',
-      views: 73000,
-      uploadedAt: '3 weeks ago',
-      likes: 670,
-      liked: false,
-      description: 'Walk through a regular day on campus with classrooms, clubs, and evening hangouts.',
+      description: 'Packing checklist, room setup ideas, and daily routine tips for first-semester hostel life.',
       image: 'images/images (1).jpeg'
     },
     {
-      id: 'srm-hostels',
-      title: 'Know More About Hostels in SRM',
-      channel: 'SRM Talks',
-      views: 62000,
-      uploadedAt: '5 days ago',
-      likes: 544,
+      id: 'education-exam-routine',
+      title: 'Exam Routine That Actually Works',
+      channel: 'StudySprint',
+      category: 'Education',
+      views: 118340,
+      uploadedAt: '10 days ago',
+      duration: '10:18',
+      likes: 3942,
       liked: false,
-      description: 'Hostel blocks, facilities, and practical tips for first-year students.',
-      image: 'images/images.jpeg'
-    },
-    {
-      id: 'alumni-stories',
-      title: 'Where Are They Now? | SRM Alumni Stories',
-      channel: 'SRM Alumni Network',
-      views: 48000,
-      uploadedAt: '4 days ago',
-      likes: 502,
-      liked: false,
-      description: 'Career journeys of SRM alumni across engineering, startups, and public service.',
-      image: 'images/Black and Green Simple Business Youtube Thumbnail.png'
+      description: 'A realistic revision schedule using spaced repetition and short active recall loops.',
+      image: 'images/Exam Time!.jpeg'
     }
   ],
   comments: {
-    'srm-clubs': [
+    'campus-clubs-srm': [
       {
         id: 'c1',
         author: 'Karthik',
@@ -70,6 +119,14 @@ export const demoData = {
         author: 'Anjali',
         text: 'This helped me decide which club to join 😍',
         createdAt: '2026-10-05T08:30:00.000Z'
+      }
+    ],
+    'tech-ai-tools': [
+      {
+        id: 'c3',
+        author: 'Maya',
+        text: 'Loved the tool stack comparison. Super useful!',
+        createdAt: '2026-10-04T10:00:00.000Z'
       }
     ]
   }
